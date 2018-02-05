@@ -1,17 +1,15 @@
-<ul>
-  <li>
-    <%= link_to 'Accueil', root_path %>
-  </li>
-  <li>
-    <%= link_to 'Se connecter', user_session_path, method: :get %>
-  </li>
-  <li>
-    <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %>
-  </li>
-  <li>
-    <%= link_to "Les users", user_index_path %>
-  </li>
-  <% if session[:email] %>
-    <%= link_to "Edit my account", edit_user_registration_path %>
-  <% end %>
-</ul>
+<div class="menu">
+  <div class="container">
+      <div class="left">
+          <p><%= link_to 'Accueil', root_path %></p>
+      </div>
+      <div class="right">
+          <p><%= link_to 'Se connecter', user_session_path, method: :get %></p>
+          <p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></p>
+          <p><%= link_to "Utilisateurs", user_index_path %></p>
+          <% if session[:email] %>
+            <%= link_to "Éditer mon compte", edit_user_registration_path %>
+          <% end %>
+      </div>
+  </div>
+</div>
