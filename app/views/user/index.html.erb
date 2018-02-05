@@ -2,5 +2,9 @@
 
 <ul>
 <% @users.each do |user| %>
-    <li><%= user.email %></li>
+    <li>
+        <h2><%= user.username %></h2>
+        <p><%= user.email %></p>
+        <%= link_to "Go to this user", user_path(user.id) %>
+    </li>
 <% end %>
