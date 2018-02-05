@@ -1,0 +1,17 @@
+<ul>
+  <li>
+    <%= link_to 'Accueil', root_path %>
+  </li>
+  <li>
+    <%= link_to 'Se connecter', user_session_path, method: :get %>
+  </li>
+  <li>
+    <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %>
+  </li>
+  <li>
+    <%= link_to "Les users", user_index_path %>
+  </li>
+  <% if session[:email] %>
+    <%= link_to "Edit my account", edit_user_registration_path %>
+  <% end %>
+</ul>
