@@ -13,13 +13,23 @@
 ActiveRecord::Schema.define(version: 20180205085324) do
 
   create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.text "title", limit: 5000, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title", limit: 150, null: false
+    t.text "post_text", null: false
+    t.string "image_url", limit: 150, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

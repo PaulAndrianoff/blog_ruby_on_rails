@@ -1,0 +1,16 @@
+<h1>Formulaire pour un nouveau post</h1>
+
+<%= form_for @post, url: '' do |f| %>
+  <%= f.label 'Titre' %><br>
+  <%= f.text_field :title, placeholder: 'Insérez votre titre...' %><br><br>
+
+  <%= f.label 'Ton post' %><br>
+  <%= f.text_area :post_text, placeholder: 'Insérez votre text...' %><br><br>
+
+  <%= f.label 'Image de couverture' %><br>
+  <%= f.text_field :image_url, placeholder: 'Insérez votre image...' %><br><br>
+
+  <%= f.hidden_field :user_id, value: 1 %>
+
+  <%= f.submit 'Envoyer' %>
+<% end %>
