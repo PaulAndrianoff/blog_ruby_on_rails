@@ -13,6 +13,7 @@ class PostController < ApplicationController
     end
   
     def create
+      puts(params[:post])
       post = Post.create(params[:post].permit!)
       redirect_to root_path if post.persisted?
     end
