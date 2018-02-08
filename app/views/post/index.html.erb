@@ -1,12 +1,9 @@
-<h1>Post Blog</h1>
-</br>
-
+<h1 class="title">Articles</h1>
 
 <% @posts.each do |post| %>
-    <div>
-        <h2><%= post.id %> - <%= post.title %>
-        <p><%= post.description %></p>
-        <a><%= link_to "View more", post_path(post.id) %></a>
+    <div class="card">
+        <h2 class="articleName"><%= post.id %> - <%= post.title %></h2>
+        <p class="articleDescription"><%= post.description %></p>
+        <%= link_to "Lire l'article", post_path(post.id), { :class=>"readButton" } %>
     </div>
 <% end %>
-
