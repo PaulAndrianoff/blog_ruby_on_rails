@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180205085324) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", limit: 150, null: false
+    t.string "description", limit: 250, null: false
     t.text "post_text", null: false
     t.string "image_url", limit: 150, null: false
     t.datetime "created_at", null: false

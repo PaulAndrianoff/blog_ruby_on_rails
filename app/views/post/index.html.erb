@@ -4,7 +4,9 @@
 
 <% @posts.each do |post| %>
     <div>
-        <h2><%= post.title %>
+        <h2><%= post.id %> - <%= post.title %>
+        <p><%= post.description %></p>
+        <a><%= link_to "View more", post_path(post.id) %></a>
     </div>
 <% end %>
 

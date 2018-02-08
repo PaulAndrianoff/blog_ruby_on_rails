@@ -4,13 +4,17 @@
           <p><%= link_to 'Accueil', root_path %></p>
       </div>
       <div class="right">
-          <p><%= link_to 'Se connecter', user_session_path, method: :get %></p>
-          <p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></p>
-          <p><%= link_to "Utilisateurs", user_index_path %></p>
-          <p><%= link_to "Posts", post_index_path %></p>
-          <p><%= link_to "Create new Post", new_post_path %></p>
-          <% if session[:username] %>
-            <%= link_to "Éditer mon compte", edit_user_registration_path %>
+          
+          <% if user_signed_in? %>
+            <p>Logged in as <strong><%= current_user.username %></strong></p>
+            <p><%= link_to "Éditer mon compte", edit_user_registration_path %></p>
+            <p><%= link_to "Utilisateurs", user_index_path %></p>
+            <p><%= link_to "Posts", post_index_path %></p>
+            <p><%= link_to "Create new Post", new_post_path %></p>
+            <p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></p>
+
+          <% else %>
+            <p><%= link_to 'Se connecter', user_session_path, method: :get %></p>
           <% end %>
       </div>
   </div>

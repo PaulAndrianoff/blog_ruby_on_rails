@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  protected
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :reset_session # TODO: is this what I want?
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  add_flash_types :error, :success # available flash types: notice, alert, error, success
 
   def configure_permitted_parameters
     added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
