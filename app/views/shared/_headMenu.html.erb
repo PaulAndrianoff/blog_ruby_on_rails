@@ -6,10 +6,10 @@
       <div class="right">
           
           <% if user_signed_in? %>
-            <p>Logged in as <strong><%= current_user.username %></strong></p>
+            <p>Welcome <%= current_user.username %></p>
             <p><%= link_to "Éditer mon compte", edit_user_registration_path %></p>
             <p><%= link_to "Utilisateurs", user_index_path %></p>
-            <p><%= link_to "Posts", post_index_path %></p>
+            <p><%= link_to "Random Blog", post_index_path %></p>
             <p><%= link_to "Create new Post", new_post_path %></p>
             <p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></p>
 

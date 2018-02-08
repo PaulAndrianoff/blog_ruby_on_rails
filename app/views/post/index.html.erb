@@ -1,12 +1,4 @@
-<h1>Post Blog</h1>
-</br>
+<h1>Le blog de <%= @user.username %></h1>
 
-
-<% @posts.each do |post| %>
-    <div>
-        <h2><%= post.id %> - <%= post.title %>
-        <p><%= post.description %></p>
-        <a><%= link_to "View more", post_path(post.id) %></a>
-    </div>
-<% end %>
+<%= render partial: 'shared/postsShow' %>
 

@@ -1,7 +1,11 @@
 class PostController < ApplicationController   
     
-    def index
-        @posts = Post.all
+    def index 
+        temp = User.all
+        id = params[:id]? params[:id] : rand(1..temp.count)
+        
+        @posts = Post.where(user_id: id)
+        @user = User.find(id)
     end
 
     def show
@@ -19,10 +23,8 @@ class PostController < ApplicationController
       redirect_to root_path if post.persisted?
     end
     
-    private
-
     def find_users_posts
-        @posts = Post.find_by user_id: params[:id]
+        
     end
 
 end
