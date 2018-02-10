@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+    <div class="card">
+        <span>De <%= comment.user.username %></span>
+        <span>Le <%= l comment.created_at, :format => :sample %></span>
+        <p class="articleName"><%= comment.description %></p>
+    </div>
+<% end %>

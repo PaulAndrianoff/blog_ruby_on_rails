@@ -1,0 +1,7 @@
+<h1>Les commentaire de l'article</h1>
+
+<% if user_signed_in? %>
+    <%= link_to "Ajouter un commentaire", new_comment_path(id: @post) %>
+<% end %>
+
+<%= render partial: 'shared/commentsShow' %>

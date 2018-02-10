@@ -1,26 +1,25 @@
 class CommentController < ApplicationController
 
     def index
-      @jobs = Job.all
+      @comments = Comment.all
     end
   
     def show
-      @post = Post.find(params[:id])
+      @comments = Comment.order(:created_at).where(post_id: params[:id])
+      @post = params[:id]
     end
   
     def new
-      @post = Post.new
+      @post_id = params[:id]
+      @comment = Comment.new
     end
   
     def create
-      post = Post.create(params[:job].permit!)
-      redirect_to root_path if post.persisted?
+      @comment = Comment.create(params.require(:comment).permit!)
+      # redirect_to root_path if comment.persisted?
+      puts @comment.errors.full_messages
+      redirect_to comment_path(params[:comment][:post_id])
     end
+  
     
-    private
-
-    def find_users_posts
-        @posts = Post.find_by user_id: params[:id]
-    end
-
 end

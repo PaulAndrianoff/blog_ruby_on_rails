@@ -1,6 +1,8 @@
 <% @posts.each do |post| %>
     <div class="card">
-        <h2 class="articleName"><%= post.id %> - <%= post.title %></h2>
+        <h2 class="articleName"><%= post.title %></h2>
+        <span>De <%= post.user.username %></span>
+        <span>Le <%= l post.updated_at, :format => :sample %></span>
         <p class="articleDescription"><%= post.description %></p>
         <%= link_to "Lire l'article", post_path(post.id), { :class=>"readButton" } %>
      </div>

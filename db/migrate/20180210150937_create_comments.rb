@@ -6,9 +6,9 @@ class CreateComments < ActiveRecord::Migration[5.1]
       t.references :user, null: false, foreign_key: { name: 'user_author' }
       t.references :post, null: false, foreign_key: { name: 'post_on_comment' }
 
-      t.text       :title,          null: false, limit: 5000
+      t.text       :description,          null: false, limit: 5000
       t.timestamps
-
+      
     end
   end
 end

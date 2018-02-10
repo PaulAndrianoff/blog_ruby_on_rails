@@ -1,11 +1,7 @@
 class PostController < ApplicationController   
     
     def index 
-        temp = User.all
-        id = params[:id]? params[:id] : rand(1..temp.count)
-        
-        @posts = Post.where(user_id: id)
-        @user = User.find(id)
+      @posts = Post.joins(:user).order(:updated_at).all
     end
 
     def show
@@ -18,13 +14,8 @@ class PostController < ApplicationController
     end
   
     def create
-      puts(params[:post])
       post = Post.create(params[:post].permit!)
       redirect_to root_path if post.persisted?
-    end
-    
-    def find_users_posts
-        
     end
 
 end
