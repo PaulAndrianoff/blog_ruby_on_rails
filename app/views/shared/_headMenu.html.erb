@@ -9,8 +9,7 @@
             <p class="info">Bonjour <strong><%= current_user.username %></strong> !</p>
             <p><%= link_to "Éditer mon compte", edit_user_registration_path %></p>
             <p><%= link_to "Bloggers", user_index_path %></p>
-            <p><%= link_to "Tous les articles", post_index_path %></p>
-            <p><%= link_to "Tous les commentaires", comment_index_path %></p>
+            <p><%= link_to "Les derniers articles", post_index_path %></p>
             <p><%= link_to "Créer nouvel article", new_post_path %></p>
             <p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></p>
 

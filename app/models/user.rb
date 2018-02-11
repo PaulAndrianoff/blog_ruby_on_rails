@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
 
   # Only allow letter, number, underscore and punctuation.
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true

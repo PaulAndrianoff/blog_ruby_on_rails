@@ -1,7 +1,7 @@
 class PostController < ApplicationController   
     
     def index 
-      @posts = Post.joins(:user).order(:updated_at).all
+      @posts = Post.order(:updated_at).joins(:user).all
     end
 
     def show
@@ -16,6 +16,11 @@ class PostController < ApplicationController
     def create
       post = Post.create(params[:post].permit!)
       redirect_to root_path if post.persisted?
+    end
+
+    def destroy
+      post = Post.find(params[:id]).delete
+      redirect_to root_path
     end
 
 end

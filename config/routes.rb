@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :user, only: [:index, :show]
-  resources :post, only: [:index, :show, :new, :create, :delete]
-  resources :comment, only: [:index, :show, :new, :create, :delete]
+  resources :post, only: [:index, :show, :new, :create, :destroy]
+  resources :comment, only: [:index, :show, :new, :create, :destroy]
 
   # Routes for exceptions
   get "/404", :to => "errors#not_found"

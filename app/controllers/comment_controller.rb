@@ -17,8 +17,14 @@ class CommentController < ApplicationController
     def create
       @comment = Comment.create(params.require(:comment).permit!)
       # redirect_to root_path if comment.persisted?
-      puts @comment.errors.full_messages
+      # puts @comment.errors.full_messages --> view error
       redirect_to comment_path(params[:comment][:post_id])
+    end
+
+    def destroy
+      comment = Comment.find(params[:id]).delete
+      puts comment.post_id
+      redirect_to post_path(comment.post_id)
     end
   
     

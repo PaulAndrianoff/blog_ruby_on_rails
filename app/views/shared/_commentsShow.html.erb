@@ -1,7 +1,14 @@
 <% @comments.each do |comment| %>
     <div class="card">
+        <p class="articleName"><%= comment.description %></p>
         <span>De <%= comment.user.username %></span>
         <span>Le <%= l comment.created_at, :format => :sample %></span>
-        <p class="articleName"><%= comment.description %></p>
+
+        <% if user_signed_in? %>
+            <% if current_user.id == comment.user_id || current_user.id == comment.post.user_id%>
+                <%= button_to "Delete", {:controller => "comment", :action => 'destroy', :id => comment.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
+            <% end %>
+        <% end %>
+
     </div>
 <% end %>
