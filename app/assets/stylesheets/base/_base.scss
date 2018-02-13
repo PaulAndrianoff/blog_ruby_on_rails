@@ -21,6 +21,11 @@ body {
             flex-wrap: nowrap;
             justify-content: left;
             align-items: center;
+
+            img {
+              width: 17px;
+              margin-right: 7px;
+            }
         }
 
         .right {
