@@ -4,10 +4,12 @@
 <div>
     <p><%= @post.post_text%></p>
 </div>
+
 <% if user_signed_in? %>
-            <% if current_user.id == @post.user_id %>
-                <%= button_to "Delete", {:controller => "post", :action => 'destroy', :id => @post.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
-            <% end %>
-        <% end %>
+    <% if current_user.id == @post.user_id %>
+        <%= button_to "Delete", {:controller => "post", :action => 'destroy', :id => @post.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
+        <%= link_to "Editer", edit_post_path(@post.id) %>
+    <% end %>
+<% end %>
 
 <%= link_to "Commenter", comment_path(@post.id) %>

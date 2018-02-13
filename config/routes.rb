@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'home#index'
+  put 'post/:id', to: 'post#update'
+
 
   resources :user, only: [:index, :show]
-  resources :post, only: [:index, :show, :new, :create, :destroy]
-  resources :comment, only: [:index, :show, :new, :create, :destroy]
+  resources :post, only: [:index, :show, :new, :create, :destroy, :edit]
+  resources :comment, only: [:index, :show, :new, :create, :destroy, :edit]
 
   # Routes for exceptions
   get "/404", :to => "errors#not_found"

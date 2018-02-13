@@ -12,9 +12,21 @@ class PostController < ApplicationController
     def new
       @post = Post.new
     end
+
+    def edit
+      @post = Post.find(params[:id])
+    end 
+
+    def update
+      # raise params.inspect
+      @post = Post.find(params[:id])
+      @post.update(params.require(:post).permit!)
+      redirect_to post_path(@post.id)
+      
+    end 
   
     def create
-      post = Post.create(params[:post].permit!)
+      post = Post.create(params.require(:post).permit!)
       redirect_to root_path if post.persisted?
     end
 

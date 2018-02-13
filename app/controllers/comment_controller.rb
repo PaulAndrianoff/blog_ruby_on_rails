@@ -8,6 +8,18 @@ class CommentController < ApplicationController
       @comments = Comment.order(:created_at).where(post_id: params[:id])
       @post = params[:id]
     end
+
+    def edit
+      @comment = Comment.find(params[:id])
+    end 
+
+    def update
+      # raise params.inspect
+      @comment = Comment.find(params[:id])
+      @comment.update(params.require(:post).permit!)
+      redirect_to post_path(@comment.id)
+      
+    end
   
     def new
       @post_id = params[:id]
@@ -16,8 +28,6 @@ class CommentController < ApplicationController
   
     def create
       @comment = Comment.create(params.require(:comment).permit!)
-      # redirect_to root_path if comment.persisted?
-      # puts @comment.errors.full_messages --> view error
       redirect_to comment_path(params[:comment][:post_id])
     end
 
