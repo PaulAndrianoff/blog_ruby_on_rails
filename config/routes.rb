@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   put 'post/:id', to: 'post#update'
+  put 'comment/:id', to: 'comment#update'
 
 
   resources :user, only: [:index, :show]

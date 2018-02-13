@@ -11,13 +11,15 @@ class CommentController < ApplicationController
 
     def edit
       @comment = Comment.find(params[:id])
+      @post_id = @comment.user_id
     end 
 
     def update
       # raise params.inspect
       @comment = Comment.find(params[:id])
-      @comment.update(params.require(:post).permit!)
-      redirect_to post_path(@comment.id)
+      puts @comment
+      @comment.update(params.require(:comment).permit!)
+      # redirect_to post_path(@comment.post_id)
       
     end
   
