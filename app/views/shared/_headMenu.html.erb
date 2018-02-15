@@ -6,15 +6,14 @@
       <div class="right">
 
           <% if user_signed_in? %>
-            <p class="info">Bonjour <strong><%= current_user.username %></strong> !</p>
-            <p><%= link_to "Éditer mon compte", edit_user_registration_path %></p>
+            <p class="info" title="Editer mon compte"><%= link_to current_user.username, edit_user_registration_path %></p>
             <p><%= link_to "Bloggers", user_index_path %></p>
-            <p><%= link_to "Les derniers articles", post_index_path %></p>
-            <p><%= link_to "Créer nouvel article", new_post_path %></p>
-            <p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></p>
+            <p><%= link_to "Derniers articles", post_index_path %></p>
+            <p><%= link_to "Nouvel article", new_post_path %></p>
+            <p><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></p>
 
           <% else %>
-            <p><%= link_to 'Se connecter', user_session_path, method: :get %></p>
+            <p><%= link_to 'Déconnexion', user_session_path, method: :get %></p>
           <% end %>
       </div>
   </div>
