@@ -45,7 +45,7 @@ input[type=text], input[type=password], input[type=submit], input[type=email], t
   margin-top: 10px;
   margin-bottom: 30px;
   border-bottom: 1px solid #7e7e7e;
-  height: 36px!important;
+  min-height: 36px!important;
   width: 100%;
   transition: all .3s;
 }
@@ -70,4 +70,26 @@ input[type=text]:focus, input[type=password]:focus {
       text-decoration: underline;
     }
   }
+}
+
+.mail {
+    display: inline-block;
+    color: #a1a1a1;
+    font-family: $second-font;
+    margin-bottom: 10px;
+
+    span {
+        color: #2d2d2d;
+    }
+}
+
+.profilLink {
+    display: inline-block;
+    color: $dark-red!important;
+    font-family: $second-font;
+    margin-bottom: 40px;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
