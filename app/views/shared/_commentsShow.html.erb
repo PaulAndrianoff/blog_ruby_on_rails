@@ -1,6 +1,6 @@
 <% @comments.each do |comment| %>
     <div class="card">
-        <p class="articleName"><%= comment.description %></p>
+        <p class="articleName"><%= comment.post_id %> - <%= comment.description %></p>
         <span>De <%= comment.user.username %></span>
         <span>Le <%= l comment.created_at, :format => :sample %></span>
 

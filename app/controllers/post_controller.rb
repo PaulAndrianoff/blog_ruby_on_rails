@@ -1,11 +1,13 @@
-class PostController < ApplicationController   
+class PostController < ApplicationController  
+  
+    before_action :find_post, only: [:show, :edit, :update, :destroy]
     
     def index 
       @posts = Post.order(:updated_at).joins(:user).all
     end
 
     def show
-      @post = Post.find(params[:id])
+      @comments = @post.comments
       @user = User.find(@post.user_id)
     end
   
@@ -14,15 +16,11 @@ class PostController < ApplicationController
     end
 
     def edit
-      @post = Post.find(params[:id])
     end 
 
     def update
-      # raise params.inspect
-      @post = Post.find(params[:id])
       @post.update(params.require(:post).permit!)
       redirect_to post_path(@post.id)
-      
     end 
   
     def create
@@ -31,8 +29,16 @@ class PostController < ApplicationController
     end
 
     def destroy
-      post = Post.find(params[:id]).delete
+      @post.destroy
       redirect_to root_path
+    end
+
+    private
+
+    def find_post
+      if defined?(params[:id])
+        @post = Post.find(params[:id])
+      end
     end
 
 end

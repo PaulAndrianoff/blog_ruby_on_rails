@@ -5,7 +5,7 @@
   <%= f.text_area :description, placeholder: 'mon commentaire...' %><br><br>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :post_id, value: @comment.user_id%>
+  <%= f.hidden_field :post_id, value: @comment.post_id%>
 
   <%= f.submit 'Envoyer' %>
 <% end %>

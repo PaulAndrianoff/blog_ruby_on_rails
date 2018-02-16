@@ -1,5 +1,7 @@
 class CommentController < ApplicationController
 
+    before_action :find_comment, only: [:edit, :update, :destroy]
+
     def index
       @comments = Comment.all
     end
@@ -10,17 +12,11 @@ class CommentController < ApplicationController
     end
 
     def edit
-      @comment = Comment.find(params[:id])
-      @post_id = @comment.user_id
     end 
 
     def update
-      # raise params.inspect
-      @comment = Comment.find(params[:id])
-      puts @comment
       @comment.update(params.require(:comment).permit!)
-      # redirect_to post_path(@comment.post_id)
-      
+      redirect_to post_path(@comment.post_id)
     end
   
     def new
@@ -30,14 +26,21 @@ class CommentController < ApplicationController
   
     def create
       @comment = Comment.create(params.require(:comment).permit!)
-      redirect_to comment_path(params[:comment][:post_id])
+      redirect_to post_path(params[:comment][:post_id])
     end
 
     def destroy
-      comment = Comment.find(params[:id]).delete
-      puts comment.post_id
-      redirect_to post_path(comment.post_id)
+      @comment.delete
+      puts @comment.post_id
+      redirect_to post_path(@comment.post_id)
     end
   
+    private
+
+    def find_comment
+      if defined?(params[:id])
+        @comment = Comment.find(params[:id])
+      end
+    end
     
 end
