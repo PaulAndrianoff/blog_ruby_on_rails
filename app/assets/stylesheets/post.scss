@@ -40,7 +40,9 @@
         color: #9a9a9a;
         width: 30%;
         padding: 15px;
+        margin: 0 auto;
         margin-top: -27px;
+        text-align: center;
 
         .author {
             margin-bottom: 10px;
@@ -50,29 +52,12 @@
 
     .articleDescription {
         margin-top: 20px;
-        margin-bottom: 40px;
         font-size: 15px;
         font-weight: 500;
         line-height: 21px;
         color: #505050;
-    }
-
-    .readButton {
-        position: absolute;
-        bottom: 18px;
-        right: 18px;
-        padding: 11px;
-        background-color: #1f1f2e;
-        color: white;
-        text-transform: uppercase;
-        font-size: 15px;
-        letter-spacing: 1.5px;
-        cursor: pointer;
-        transition: background .3s;
-
-        &:hover {
-            background-color: #2e2e41;
-        }
+        font-family: $second-font;
+        line-height: 1.5;
     }
 
     .username {
