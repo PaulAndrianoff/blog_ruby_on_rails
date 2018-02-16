@@ -33,6 +33,21 @@
         text-transform: uppercase;
     }
 
+    .articleInfo {
+        background-color: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        color: #9a9a9a;
+        width: 30%;
+        padding: 15px;
+        margin-top: -27px;
+
+        .author {
+            margin-bottom: 10px;
+
+        }
+    }
+
     .articleDescription {
         margin-top: 20px;
         margin-bottom: 40px;
@@ -57,6 +72,56 @@
 
         &:hover {
             background-color: #2e2e41;
+        }
+    }
+
+    .username {
+        color: #949494;
+        margin-top: -25px;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        color: #292929;
+        font-family: $second-font;
+        line-height: 1.5;
+        font-weight: bolder;
+        max-width: 750px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .text {
+        color: #292929;
+        font-family: $second-font;
+        line-height: 1.5;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+
+    a, form {
+        display: inline-block;
+        background-color: #420C14;
+        color: white!important;
+        height: 30px;
+        width: 20%;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        margin: 0 20px;
+        margin-top: 20px;
+        text-align: center;
+        padding-top: 6px;
+
+        input {
+            margin: 0;
+            height: auto!important;
+            border: none;
         }
     }
 }
