@@ -45,13 +45,16 @@ input[type=text], input[type=password], input[type=submit], input[type=email], t
   margin-top: 10px;
   margin-bottom: 30px;
   border-bottom: 1px solid #7e7e7e;
-  min-height: 36px!important;
   width: 100%;
   transition: all .3s;
 }
 
 textarea {
     margin-top: 20px;
+}
+
+input[type=text], textarea {
+    min-height: 36px;
 }
 
 input[type=text]:focus, input[type=password]:focus {

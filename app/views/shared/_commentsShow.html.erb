@@ -1,15 +1,19 @@
 <% @comments.each do |comment| %>
     <div class="card">
-        <p class="articleName"><%= comment.post_id %> - <%= comment.description %></p>
-        <span>De <%= comment.user.username %></span>
-        <span>Le <%= l comment.created_at, :format => :sample %></span>
+        <p class="commentName"><%= comment.post_id %> - <%= comment.description %></p>
+        <div class="articleInfo comment">
+            <span>Par <%= comment.user.username %></span>
+            <span>Le <%= l comment.created_at, :format => :sample %></span>
+        </div>
 
-        <% if user_signed_in? %>
-            <% if current_user.id == comment.user_id || current_user.id == comment.post.user_id%>
-                <%= button_to "Delete", {:controller => "comment", :action => 'destroy', :id => comment.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
-                <%= link_to "Editer", edit_comment_path(comment.id) %>
+        <div class="buttonGroup">
+            <% if user_signed_in? %>
+                <% if current_user.id == comment.user_id || current_user.id == comment.post.user_id%>
+                    <%= button_to "Delete", {:controller => "comment", :action => 'destroy', :id => comment.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
+                    <%= link_to "Editer", edit_comment_path(comment.id) %>
+                <% end %>
             <% end %>
-        <% end %>
+        </div>
 
     </div>
 <% end %>

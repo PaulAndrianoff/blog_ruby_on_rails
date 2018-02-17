@@ -44,6 +44,10 @@
         margin-top: -27px;
         text-align: center;
 
+        &.comment {
+            margin-top: 0;
+        }
+
         .author {
             margin-bottom: 10px;
 
