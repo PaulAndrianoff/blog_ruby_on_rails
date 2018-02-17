@@ -4,7 +4,7 @@
 <% @users.each do |user| %>
     <li>
         <h2><%= user.username %> - <%= user.id %></h2>
-        <p class="mail">Contact : <span><%= user.email %></span></p>
-        <%= link_to "Aller à son profil", user_path(user.id), :class => 'profilLink' %>
+        <p class="mail"><%= t('user_mail') %> : <span><%= user.email %></span></p>
+        <%= link_to t('view_profile'), user_path(user.id), :class => 'profilLink' %>
     </li>
 <% end %>

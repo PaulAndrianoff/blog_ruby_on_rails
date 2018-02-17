@@ -1,6 +1,6 @@
 <div class="card">
     <h2><%= @post.title %></h2>
-    <span class="username">Par <%= @user.username %></span>
+    <span class="username"><%= t('from') %> <%= @user.username %></span>
     <p class="description"><%= @post.description %></p>
     <div class="text">
         <p><%= @post.post_text%></p>
@@ -9,13 +9,13 @@
     <div class="buttonGroup">
         <% if user_signed_in? %>
             <% if current_user.id == @post.user_id %>
-                    <%= button_to "Delete", {:controller => "post", :action => 'destroy', :id => @post.id, :class => 'delete'}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
-                    <%= link_to "Editer", edit_post_path(@post.id), :class => 'edit' %>
+                    <%= button_to t('delete'), {:controller => "post", :action => 'destroy', :id => @post.id, :class => 'delete'}, :confirm => "Are you sure you want to delete it ?", :method => :delete %>
+                    <%= link_to t('edite'), edit_post_path(@post.id), :class => 'edit' %>
             <% end %>
         <% end %>
 
         <% if user_signed_in? %>
-            <%= link_to "Ajouter un commentaire", new_comment_path(id: @post) %>
+            <%= link_to t('add_comment'), new_comment_path(id: @post) %>
         <% end %>
 
     </div>

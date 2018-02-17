@@ -1,7 +1,7 @@
 <h1>Editer le commentaire</h1>
 
 <%= form_for @comment, method: "put" do |f| %>
-  <%= f.label 'Votre commentaire' %><br>
+  <%= f.label t('comment') %><br>
   <%= f.text_area :description, placeholder: 'mon commentaire...' %><br><br>
 
   <%= f.hidden_field :user_id, value: current_user.id %>

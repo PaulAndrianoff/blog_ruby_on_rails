@@ -1,20 +1,23 @@
 <div class="menu">
   <div class="container">
       <div class="left">
-          <p><img src="/assets/ruby-logo.svg" alt="Logo"><%= link_to 'Accueil', root_path %></p>
+          <p><img src="/assets/ruby-logo.svg" alt="Logo"><%= link_to t("home"), root_path %></p>
       </div>
       <div class="right">
 
           <% if user_signed_in? %>
             <p class="info" title="Editer mon compte"><%= link_to current_user.username, edit_user_registration_path %></p>
-            <p><%= link_to "Utilisateurs", user_index_path %></p>
-            <p><%= link_to "Derniers articles", post_index_path %></p>
-            <p><%= link_to "Nouvel article", new_post_path %></p>
-            <p><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></p>
+            <p><%= link_to t('user'), user_index_path %></p>
+            <p><%= link_to t('last_article'), post_index_path %></p>
+            <p><%= link_to t('new_article'), new_post_path %></p>
+            <p><%= link_to t('log.out'), destroy_user_session_path, method: :delete %></p>
 
           <% else %>
-            <p><%= link_to 'Connexion', user_session_path, method: :get %></p>
+            <p><%= link_to t('log.in'), user_session_path, method: :get %></p>
           <% end %>
+
+          <p><%= link_to 'fr', home_path('fr') %></p>
+          <p><%= link_to 'en', home_path('en') %></p>
       </div>
   </div>
 </div>

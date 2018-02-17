@@ -1,19 +1,16 @@
 <h1>Editer le post</h1>
 
 <%= form_for @post, method: "put" do |f| %>
-  <%= f.label 'Titre' %><br>
-  <%= f.text_field :title, placeholder: 'Insérez votre titre...' %><br><br>
+  <%= f.label t('post_t') %><br>
+  <%= f.text_field :title, placeholder: t('post_title') %><br><br>
 
-  <%= f.label 'La description du post' %><br>
-  <%= f.text_area :description, placeholder: 'Insérez votre description...' %><br><br>
+  <%= f.label t('post_description') %><br>
+  <%= f.text_area :description, placeholder: t('post_desc_area') %><br><br>
 
-  <%= f.label 'Ton post' %><br>
-  <%= f.text_area :post_text, placeholder: 'Insérez votre text...' %><br><br>
-
-  <%= f.label 'Image de couverture' %><br>
-  <%= f.text_field :image_url, placeholder: 'Insérez votre image...' %><br><br>
+  <%= f.label t('post_content') %><br>
+  <%= f.text_area :post_text, placeholder: t('post_content_area') %><br><br>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <%= f.submit 'Modifier' %>
+  <%= f.submit t('edit') %>
 <% end %>

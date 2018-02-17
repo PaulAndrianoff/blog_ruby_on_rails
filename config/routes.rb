@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   put 'post/:id', to: 'post#update'
   put 'comment/:id', to: 'comment#update'
 
-
+  resources :home, only: [:index, :show]
   resources :user, only: [:index, :show]
   resources :post, only: [:index, :show, :new, :create, :destroy, :edit]
   resources :comment, only: [:index, :show, :new, :create, :destroy, :edit]

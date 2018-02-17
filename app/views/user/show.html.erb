@@ -1,4 +1,4 @@
 <h2><%= @user.username %> - <%= @user.id %></h2>
-<p>Contact him <%= @user.email %></p>
+<p><%= t('user_mail') %> : <%= @user.email %></p>
 
 <%= render partial: 'shared/postsShow' %>

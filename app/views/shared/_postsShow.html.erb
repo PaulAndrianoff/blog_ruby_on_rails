@@ -2,20 +2,21 @@
     <div class="card">
         <h2 class="articleName"><%= post.id %> - <%= post.title %></h2>
         <div class="articleInfo">
-            <span class="author">De <%= post.user.username %></span>
-            <span class="date">Le <%= l post.updated_at, :format => :sample %></span>
+            <span class="author"><%= t('from') %> <%= post.user.username %></span>
+            <span class="date"><%= t('the') %> <%= l post.updated_at, :format => :sample %></span>
         </div>
         <p class="articleDescription"><%= post.description %></p>
 
         <div class="buttonGroup">
-        <%= link_to "Lire l'article", post_path(post.id), { :class=>"readButton" } %>
+        <%= link_to t('read_profile'), post_path(post.id), { :class=>"readButton" } %>
 
         <% if user_signed_in? %>
             <% if current_user.id == post.user_id %>
-                    <%= button_to "Delete", {:controller => "post", :action => 'destroy', :id => post.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete, :class => 'delete' %>
-                    <%= link_to "Editer", edit_post_path(post.id), :class => 'edit' %>
+                    <%= button_to t('delete'), {:controller => "post", :action => 'destroy', :id => post.id}, :confirm => "Are you sure you want to delete it ?", :method => :delete, :class => 'delete' %>
+                    <%= link_to t('edite'), edit_post_path(post.id), :class => 'edit' %>
             <% end %>
         <% end %>
         </div>
      </div>
 <% end %>
+
