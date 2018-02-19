@@ -17,3 +17,8 @@ $ bundle
 ```sh
 $ rails server
 ```
+
+---
+## Contributeurs
+ * [Simon Lucas](https://github.com/Reelwens)
+ * [Paul Andrianoff](https://github.com/PaulAndrianoff)
